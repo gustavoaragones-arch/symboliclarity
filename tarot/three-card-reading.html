@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Draw a calm three-card tarot reflection exploring past, present, and unfolding direction. No tracking. No predictions. Just symbolic clarity.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://symboliclarity.com/tarot/three-card-reading.html">
+  <meta property="og:title" content="Three-Card Tarot Reflection – Symboliclarity">
+  <meta property="og:description" content="Draw a calm three-card tarot reflection exploring past, present, and unfolding direction. No tracking. No predictions. Just symbolic clarity.">
+  
+  <link rel="canonical" href="https://symboliclarity.com/tarot/three-card-reading.html">
+  <title>Three-Card Tarot Reflection – Symboliclarity</title>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Three-Card Tarot Reflection",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "All",
+    "url": "https://symboliclarity.com/tarot/three-card-reading.html"
+  }
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .tarot-page { --tarot-bg: #0F1221; --tarot-card: #161A2E; --tarot-accent: #C6A95D; --tarot-muted: #8F9BB3; --tarot-border: rgba(255,255,255,0.06); }
+    .tarot-page body { background-color: var(--tarot-bg); }
+    .tarot-page .site-header, .tarot-page main, .tarot-page .site-footer { max-width: 860px; }
+    .tarot-page .tarot-hero__title { font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 500; color: var(--color-text); margin: 0 0 8px; }
+    .tarot-page .tarot-hero__subtext { font-size: 1.1rem; color: var(--color-text-secondary); margin: 0 0 16px; }
+    .tarot-page .tarot-hero__intro { font-size: 0.95rem; color: var(--color-text-secondary); max-width: 560px; margin: 0; }
+    .tarot-page .tarot-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 40px 0; }
+    @media (max-width: 600px) { .tarot-page .tarot-cards { grid-template-columns: 1fr; } }
+    .tarot-page .tarot-card-slot { aspect-ratio: 2/3; border-radius: 8px; overflow: hidden; border: 1px solid var(--tarot-border); background: var(--tarot-card); perspective: 800px; }
+    .tarot-page .tarot-card-flip { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 400ms ease; }
+    .tarot-page .tarot-card-flip.flip { transform: rotateY(180deg); }
+    .tarot-page .tarot-card-front,
+    .tarot-page .tarot-card-back { position: absolute; inset: 0; backface-visibility: hidden; }
+    .tarot-page .tarot-card-back { transform: rotateY(180deg); }
+    .tarot-page .tarot-card-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .tarot-page .tarot-card-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--tarot-muted); margin-top: 12px; text-align: center; }
+    .tarot-page .tarot-card-name { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--color-text); margin-top: 4px; text-align: center; }
+    .tarot-page .tarot-card-meaning { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.5; margin-top: 8px; text-align: center; }
+    .tarot-page .tarot-draw-btn { display: block; margin: 32px auto 0; padding: 14px 32px; background: var(--tarot-accent); color: var(--tarot-bg); border: none; border-radius: 6px; font-family: inherit; font-size: 1rem; font-weight: 500; cursor: pointer; transition: opacity 0.2s; }
+    .tarot-page .tarot-draw-btn:hover { opacity: 0.9; }
+    .tarot-page .tarot-draw-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .tarot-page .tarot-disclaimer { font-size: 0.8rem; color: var(--color-text-secondary); opacity: 0.8; margin-top: 32px; }
+    .tarot-page .tarot-result { margin-top: 48px; }
+    .tarot-page .tarot-result__prompt { font-size: 1rem; color: var(--color-text-secondary); margin: 0 0 24px; }
+    .tarot-page .tarot-related { margin-top: 32px; }
+    .tarot-page .tarot-related__title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--tarot-muted); margin: 0 0 12px; }
+    .tarot-page .tarot-related__list { list-style: none; padding: 0; margin: 0; }
+    .tarot-page .tarot-related__list li { margin-bottom: 8px; }
+    .tarot-page .tarot-related__list a { color: var(--tarot-accent); }
+    .tarot-page .tarot-related__list a:hover { color: var(--color-text-secondary); }
+  </style>
+</head>
+<body class="tarot-page">
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/" class="nav__logo">symboliclarity</a>
+      <ul class="nav__links">
+        <li><a href="/angel-number/">Angel Numbers</a></li>
+        <li><a href="/tarot/three-card-reading.html">Tarot</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/moon-retrograde/">Moon & Retrograde</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="article">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span class="breadcrumb__sep">/</span>
+      <a href="/tarot/three-card-reading.html">Three-Card Reflection</a>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="tarot-hero">
+      <h1 class="tarot-hero__title">Three-Card Reflection</h1>
+      <p class="tarot-hero__subtext">A symbolic spread exploring past influence, present energy, and unfolding direction.</p>
+      <p class="tarot-hero__intro">This reading does not predict the future. It offers symbolic themes to reflect on your situation.</p>
+    </section>
+
+    <!-- ========== CARD DRAW AREA ========== -->
+    <section class="tarot-cards" aria-label="Three-card spread">
+      <div class="tarot-card-slot" data-position="past">
+        <div class="tarot-card-flip" id="card-past-flip">
+          <div class="tarot-card-front"><img src="/assets/images/tarot/back.jpg" alt=""></div>
+          <div class="tarot-card-back"><img id="card-past-img" alt="" loading="lazy"></div>
+        </div>
+        <p class="tarot-card-label">Past</p>
+        <p class="tarot-card-name" id="card-past-name" aria-live="polite"></p>
+        <p class="tarot-card-meaning" id="card-past-meaning" aria-live="polite"></p>
+      </div>
+      <div class="tarot-card-slot" data-position="present">
+        <div class="tarot-card-flip" id="card-present-flip">
+          <div class="tarot-card-front"><img src="/assets/images/tarot/back.jpg" alt=""></div>
+          <div class="tarot-card-back"><img id="card-present-img" alt="" loading="lazy"></div>
+        </div>
+        <p class="tarot-card-label">Present</p>
+        <p class="tarot-card-name" id="card-present-name" aria-live="polite"></p>
+        <p class="tarot-card-meaning" id="card-present-meaning" aria-live="polite"></p>
+      </div>
+      <div class="tarot-card-slot" data-position="emerging">
+        <div class="tarot-card-flip" id="card-emerging-flip">
+          <div class="tarot-card-front"><img src="/assets/images/tarot/back.jpg" alt=""></div>
+          <div class="tarot-card-back"><img id="card-emerging-img" alt="" loading="lazy"></div>
+        </div>
+        <p class="tarot-card-label">Emerging</p>
+        <p class="tarot-card-name" id="card-emerging-name" aria-live="polite"></p>
+        <p class="tarot-card-meaning" id="card-emerging-meaning" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <button type="button" class="tarot-draw-btn" id="tarot-draw">Draw Reflection</button>
+
+    <p class="tarot-disclaimer">This tool offers symbolic reflection, not guaranteed predictions.</p>
+
+    <!-- ========== RESULT SECTION (shown after cards revealed) ========== -->
+    <section id="result-section" class="tarot-result" hidden>
+      <p class="tarot-result__prompt">Take a moment to consider how these themes relate to your current question.</p>
+      <div class="ad-slot"></div>
+      <div class="tarot-related">
+        <h3 class="tarot-related__title">Explore further</h3>
+        <ul class="tarot-related__list">
+          <li><a href="/angel-number/">Angel Numbers</a></li>
+          <li><a href="/yes-no-oracle.html">Yes/No Oracle</a></li>
+          <li><a href="/moon-retrograde/mercury-retrograde.html">Moon & Retrograde Guide</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer__nav" aria-label="Footer navigation">
+      <a href="/about/">About</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/disclaimer/">Disclaimer</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <p class="footer__copyright">© 2026 symboliclarity</p>
+  </footer>
+
+  <script type="module">
+    import { tarotDeck } from '../data/tarot-deck.js';
+
+    const CARD_IMG_BASE = '/assets/images/tarot/full-deck/';
+
+    function shuffle(array) {
+      return [...array].sort(() => Math.random() - 0.5);
+    }
+
+    function drawThree() {
+      const shuffled = shuffle(tarotDeck);
+      return [shuffled[0], shuffled[1], shuffled[2]];
+    }
+
+    const btn = document.getElementById('tarot-draw');
+    const slots = {
+      past: { flip: document.getElementById('card-past-flip'), img: document.getElementById('card-past-img'), name: document.getElementById('card-past-name'), meaning: document.getElementById('card-past-meaning') },
+      present: { flip: document.getElementById('card-present-flip'), img: document.getElementById('card-present-img'), name: document.getElementById('card-present-name'), meaning: document.getElementById('card-present-meaning') },
+      emerging: { flip: document.getElementById('card-emerging-flip'), img: document.getElementById('card-emerging-img'), name: document.getElementById('card-emerging-name'), meaning: document.getElementById('card-emerging-meaning') }
+    };
+
+    function assignCard(slot, card) {
+      slot.flip.classList.remove('flip');
+      slot.img.src = '';
+      slot.img.alt = '';
+      slot.name.textContent = '';
+      slot.meaning.textContent = '';
+      requestAnimationFrame(() => {
+        slot.img.src = CARD_IMG_BASE + card.slug + '.jpg';
+        slot.img.alt = card.name;
+        slot.name.textContent = card.name;
+        slot.meaning.textContent = card.meaning;
+        slot.flip.classList.add('flip');
+      });
+    }
+
+    const resultSection = document.getElementById('result-section');
+
+    btn.addEventListener('click', function() {
+      btn.disabled = true;
+      const [past, present, emerging] = drawThree();
+
+      assignCard(slots.past, past);
+      assignCard(slots.present, present);
+      assignCard(slots.emerging, emerging);
+
+      resultSection.hidden = false;
+      resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      btn.disabled = false;
+    });
+  </script>
+</body>
+</html>

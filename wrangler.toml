@@ -1,0 +1,9 @@
+name = "symboliclarity-api"
+main = "src/index.js"
+compatibility_date = "2026-02-13"
+
+account_id = "" # leave empty, wrangler auto-detects
+
+routes = [
+  { pattern = "symboliclarity.com/api/*", zone_name = "symboliclarity.com" }
+]

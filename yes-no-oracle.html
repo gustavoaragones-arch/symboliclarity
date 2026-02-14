@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A private yes or no oracle offering symbolic clarity during uncertain moments. No accounts, no tracking, just reflection.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://symboliclarity.com/yes-no-oracle.html">
+  <meta property="og:title" content="Yes or No Oracle – Symbolic Reflection Tool">
+  <meta property="og:description" content="A private yes or no oracle offering symbolic clarity during uncertain moments. No accounts, no tracking, just reflection.">
+  
+  <link rel="canonical" href="https://symboliclarity.com/yes-no-oracle.html">
+  <title>Yes or No Oracle – Symbolic Reflection Tool</title>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Yes or No Oracle",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "All"
+  }
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Oracle-specific: darker palette, muted indigo + soft gold */
+    .oracle-page {
+      --oracle-bg: #0E1116;
+      --oracle-card: #151A22;
+      --oracle-accent: #6E7BFF;
+      --oracle-gold: #C8A95D;
+      --oracle-text: #E8EAEF;
+      --oracle-muted: #9CA3B4;
+      --oracle-border: rgba(255,255,255,0.06);
+    }
+    .oracle-page body { background-color: var(--oracle-bg); }
+    .oracle-page .site-header,
+    .oracle-page main,
+    .oracle-page .site-footer { max-width: 720px; }
+    .oracle-page .oracle-hero {
+      margin-bottom: 40px;
+    }
+    .oracle-page .oracle-hero__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 500;
+      color: var(--oracle-text);
+      margin: 0 0 8px;
+    }
+    .oracle-page .oracle-hero__subtext {
+      font-size: 1.1rem;
+      color: var(--oracle-muted);
+      margin: 0;
+    }
+    .oracle-page .oracle-card {
+      background: var(--oracle-card);
+      border: 1px solid var(--oracle-border);
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .oracle-page .oracle-input {
+      width: 100%;
+      padding: 16px 20px;
+      background: var(--oracle-bg);
+      border: 1px solid var(--oracle-border);
+      border-radius: 6px;
+      color: var(--oracle-text);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+    .oracle-page .oracle-input::placeholder { color: var(--oracle-muted); opacity: 0.8; }
+    .oracle-page .oracle-input:focus {
+      outline: none;
+      border-color: var(--oracle-accent);
+    }
+    .oracle-page .oracle-btn {
+      display: block;
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px 24px;
+      background: var(--oracle-accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .oracle-page .oracle-btn:hover { opacity: 0.9; }
+    .oracle-page .oracle-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .oracle-page .oracle-privacy {
+      font-size: 0.8rem;
+      color: var(--oracle-muted);
+      opacity: 0.85;
+      margin: 16px 0 0;
+    }
+    .oracle-page .oracle-answer {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 500;
+      color: var(--oracle-gold);
+      margin-bottom: 16px;
+    }
+    .oracle-page .oracle-explanation { color: var(--oracle-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 24px; }
+    .oracle-page .oracle-engagement {
+      padding-top: 24px;
+      border-top: 1px solid var(--oracle-border);
+    }
+    .oracle-page .oracle-engagement__text {
+      font-size: 0.95rem;
+      color: var(--oracle-muted);
+      margin: 0 0 12px;
+    }
+    .oracle-page .oracle-btn--secondary {
+      background: transparent;
+      border: 1px solid var(--oracle-border);
+      color: var(--oracle-muted);
+      text-decoration: none;
+      text-align: center;
+    }
+    .oracle-page .oracle-btn--secondary:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+    .oracle-page .oracle-disclaimer { font-size: 0.8rem; color: var(--oracle-muted); opacity: 0.8; }
+    .oracle-page .oracle-related { margin-top: 48px; }
+    .oracle-page .oracle-related h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--oracle-muted);
+      margin-bottom: 16px;
+    }
+    .oracle-page .oracle-related a { color: var(--oracle-accent); }
+    .oracle-page .oracle-related a:hover { color: var(--oracle-gold); }
+    .oracle-page .oracle-related__list { list-style: none; padding: 0; margin: 0; }
+    .oracle-page .oracle-related__list li { margin-bottom: 8px; }
+    .oracle-page .oracle-related__soon { font-size: 0.85em; opacity: 0.7; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    @keyframes oracle-pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+    .oracle-loading {
+      animation: oracle-pulse 1.2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="oracle-page">
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/" class="nav__logo">symboliclarity</a>
+      <ul class="nav__links">
+        <li><a href="/angel-number/">Angel Numbers</a></li>
+        <li><a href="/tarot/">Tarot</a></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/moon-retrograde/">Moon & Retrograde</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="article">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span class="breadcrumb__sep">/</span>
+      <a href="/yes-no-oracle.html">Yes or No Oracle</a>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="oracle-hero">
+      <h1 class="oracle-hero__title">Yes or No Oracle</h1>
+      <p class="oracle-hero__subtext">A quiet symbolic reflection tool for moments of uncertainty.</p>
+    </section>
+
+    <!-- ========== INPUT AREA ========== -->
+    <section class="oracle-card input-area">
+      <label for="oracle-question" class="sr-only">What is weighing on your mind?</label>
+      <input
+        type="text"
+        id="oracle-question"
+        class="oracle-input"
+        placeholder="What is weighing on your mind?"
+        autocomplete="off"
+      >
+      <button type="button" class="oracle-btn" id="oracle-draw">Draw Insight</button>
+      <p class="oracle-privacy">Your question stays in your browser. Nothing is saved.</p>
+    </section>
+
+    <!-- ========== RESULT AREA ========== -->
+    <section id="result-area" class="oracle-card" hidden>
+      <p class="oracle-loading" id="oracle-loading" hidden>Drawing…</p>
+      <p class="oracle-answer" id="oracle-answer"></p>
+      <p class="oracle-explanation" id="oracle-explanation"></p>
+      <div id="engagement-layer" class="oracle-engagement">
+        <p class="oracle-engagement__text">Would you like deeper symbolic insight?</p>
+        <a href="/tarot/three-card-reading.html" class="oracle-btn oracle-btn--secondary">Explore 3-Card Reading</a>
+      </div>
+    </section>
+
+    <!-- ========== DISCLAIMER ========== -->
+    <section class="oracle-disclaimer">
+      <p>This tool offers symbolic reflection, not guaranteed predictions.</p>
+    </section>
+
+    <!-- ========== AD SLOT ========== -->
+    <div class="ad-slot"><!-- AdSense block placeholder --></div>
+
+    <!-- ========== RELATED LINKS ========== -->
+    <section class="oracle-related">
+      <h3>Explore further</h3>
+      <ul class="oracle-related__list">
+        <li><a href="/angel-number/">Angel Numbers</a></li>
+        <li><a href="/tarot/">Tarot Reading</a> <span class="oracle-related__soon">(coming soon)</span></li>
+        <li><a href="/moon-retrograde/mercury-retrograde.html">Mercury Retrograde Guide</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer__nav" aria-label="Footer navigation">
+      <a href="/about/">About</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/disclaimer/">Disclaimer</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <p class="footer__copyright">© 2026 symboliclarity</p>
+  </footer>
+
+  <script>
+    (function() {
+      const drawBtn = document.getElementById('oracle-draw');
+      const resultArea = document.getElementById('result-area');
+      const loadingEl = document.getElementById('oracle-loading');
+      const answerEl = document.getElementById('oracle-answer');
+      const explanationEl = document.getElementById('oracle-explanation');
+      const engagementLayer = document.getElementById('engagement-layer');
+
+      const reflections = {
+        'Yes.': 'This suggests momentum is on your side. Still, act with awareness.',
+        'No.': 'This may be a signal to pause. What feels misaligned?',
+        'Not yet.': 'Timing matters. Something may need to unfold first.',
+        'Pause and reflect first.': 'Your clarity may come from stepping back.',
+        'The answer depends on your next move.': 'Your actions shape the outcome more than circumstance.'
+      };
+
+      drawBtn.addEventListener('click', async function() {
+        drawBtn.disabled = true;
+        drawBtn.textContent = 'Drawing…';
+
+        loadingEl.hidden = false;
+        answerEl.hidden = true;
+        explanationEl.hidden = true;
+        engagementLayer.hidden = true;
+        resultArea.hidden = false;
+        resultArea.classList.add('oracle-loading');
+        resultArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        try {
+          const res = await fetch('/api/yes-no', { method: 'GET' });
+          const data = await res.json();
+          const answer = data.answer || 'Pause and reflect first.';
+
+          resultArea.classList.remove('oracle-loading');
+          loadingEl.hidden = true;
+          answerEl.hidden = false;
+          explanationEl.hidden = false;
+          engagementLayer.hidden = false;
+
+          answerEl.textContent = answer;
+          explanationEl.textContent = reflections[answer] || reflections['Pause and reflect first.'];
+        } catch (err) {
+          resultArea.classList.remove('oracle-loading');
+          loadingEl.hidden = true;
+          answerEl.hidden = false;
+          explanationEl.hidden = false;
+          engagementLayer.hidden = false;
+          answerEl.textContent = 'Pause and reflect first.';
+          explanationEl.textContent = 'Your clarity may come from stepping back.';
+        }
+
+        drawBtn.disabled = false;
+        drawBtn.textContent = 'Draw Insight';
+      });
+    })();
+  </script>
+</body>
+</html>
