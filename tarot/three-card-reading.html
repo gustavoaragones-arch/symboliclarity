@@ -36,15 +36,20 @@
     .tarot-page .tarot-hero__title { font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 500; color: var(--color-text); margin: 0 0 8px; }
     .tarot-page .tarot-hero__subtext { font-size: 1.1rem; color: var(--color-text-secondary); margin: 0 0 16px; }
     .tarot-page .tarot-hero__intro { font-size: 0.95rem; color: var(--color-text-secondary); max-width: 560px; margin: 0; }
-    .tarot-page .tarot-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 40px 0; }
-    @media (max-width: 600px) { .tarot-page .tarot-cards { grid-template-columns: 1fr; } }
-    .tarot-page .tarot-card-slot { aspect-ratio: 2/3; border-radius: 8px; overflow: hidden; border: 1px solid var(--tarot-border); background: var(--tarot-card); perspective: 800px; }
-    .tarot-page .tarot-card-flip { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 400ms ease; }
+    .tarot-page .tarot-cards-row { display: flex; justify-content: center; gap: 32px; flex-wrap: nowrap; margin: 40px 0; }
+    @media (max-width: 900px) { .tarot-page .tarot-cards-row { flex-wrap: wrap; } }
+    .tarot-page .tarot-card-slot { flex: 0 1 245px; border-radius: 12px; overflow: hidden; border: 1px solid var(--tarot-border); background: var(--tarot-card); perspective: 800px; transition: transform 0.3s ease; }
+    .tarot-page .tarot-card-slot.is-revealed { flex: 0 1 290px; }
+    .tarot-page.tarot-route-html .tarot-card-slot.is-revealed { flex: 0 1 315px; }
+    .tarot-page .tarot-card-slot:hover { transform: translateY(-4px); }
+    .tarot-page .tarot-card-flip { position: relative; width: 100%; max-width: 245px; margin: 0 auto; aspect-ratio: 827 / 1417; border-radius: 14px; overflow: hidden; transform-style: preserve-3d; transition: transform 400ms ease, max-width 400ms ease; }
+    .tarot-page .tarot-card-slot.is-revealed .tarot-card-flip { max-width: 290px; }
+    .tarot-page.tarot-route-html .tarot-card-slot.is-revealed .tarot-card-flip { max-width: 315px; }
     .tarot-page .tarot-card-flip.flip { transform: rotateY(180deg); }
     .tarot-page .tarot-card-front,
     .tarot-page .tarot-card-back { position: absolute; inset: 0; backface-visibility: hidden; }
     .tarot-page .tarot-card-back { transform: rotateY(180deg); }
-    .tarot-page .tarot-card-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .tarot-page .tarot-card-flip img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; display: block; }
     .tarot-page .tarot-card-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--tarot-muted); margin-top: 12px; text-align: center; }
     .tarot-page .tarot-card-name { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--color-text); margin-top: 4px; text-align: center; }
     .tarot-page .tarot-card-meaning { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.5; margin-top: 8px; text-align: center; }
@@ -62,7 +67,10 @@
     .tarot-page .tarot-related__list a:hover { color: var(--color-text-secondary); }
   </style>
 </head>
-<body class="tarot-page">
+<body class="tarot-page" id="tarot-body">
+  <script>
+    if (window.location.pathname.endsWith('.html')) document.body.classList.add('tarot-route-html');
+  </script>
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation">
       <a href="/" class="nav__logo">symboliclarity</a>
@@ -90,7 +98,7 @@
     </section>
 
     <!-- ========== CARD DRAW AREA ========== -->
-    <section class="tarot-cards" aria-label="Three-card spread">
+    <section class="tarot-cards tarot-cards-row" aria-label="Three-card spread">
       <div class="tarot-card-slot" data-position="past">
         <div class="tarot-card-flip" id="card-past-flip">
           <div class="tarot-card-front"><img src="/assets/images/tarot/back.jpg" alt=""></div>
@@ -171,6 +179,8 @@
     };
 
     function assignCard(slot, card) {
+      const slotEl = slot.flip.closest('.tarot-card-slot');
+      slotEl.classList.remove('is-revealed');
       slot.flip.classList.remove('flip');
       slot.img.src = '';
       slot.img.alt = '';
@@ -181,6 +191,7 @@
         slot.img.alt = card.name;
         slot.name.textContent = card.name;
         slot.meaning.textContent = card.meaning;
+        slotEl.classList.add('is-revealed');
         slot.flip.classList.add('flip');
       });
     }
