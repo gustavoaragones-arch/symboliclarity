@@ -81,6 +81,14 @@
       outline: none;
       border-color: var(--oracle-accent);
     }
+    .oracle-page .oracle-input.input-error {
+      border-color: #d06b6b;
+    }
+    .oracle-page .validation-message {
+      color: #d6a8a8;
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
     .oracle-page .oracle-btn {
       display: block;
       width: 100%;
@@ -192,7 +200,8 @@
         placeholder="What is weighing on your mind?"
         autocomplete="off"
       >
-      <button type="button" class="oracle-btn" id="oracle-draw">Draw Insight</button>
+      <p class="validation-message" id="validation-message" hidden aria-live="polite"></p>
+      <button type="button" class="oracle-btn" id="oracle-draw" disabled>Draw Insight</button>
       <p class="oracle-privacy">Your question stays in your browser. Nothing is saved.</p>
     </section>
 
@@ -238,12 +247,50 @@
 
   <script>
     (function() {
+      const input = document.getElementById('oracle-question');
       const drawBtn = document.getElementById('oracle-draw');
+      const validationMsg = document.getElementById('validation-message');
       const resultArea = document.getElementById('result-area');
       const loadingEl = document.getElementById('oracle-loading');
       const answerEl = document.getElementById('oracle-answer');
       const explanationEl = document.getElementById('oracle-explanation');
       const engagementLayer = document.getElementById('engagement-layer');
+
+      function isValidQuestion(text) {
+        const t = text.trim();
+        if (t.length < 10) return false;
+        const wordCount = t.split(/\s+/).filter(Boolean).length;
+        if (wordCount < 3) return false;
+        if (!/[a-zA-Z]/.test(t)) return false;
+        if (/^(.)\1+$/.test(t)) return false;
+        const verbPattern = /\b(will|should|can|is|are|do|does|did|am|was)\b/i;
+        if (!verbPattern.test(t) && !t.endsWith('?')) return false;
+        return true;
+      }
+
+      function updateValidation() {
+        const valid = isValidQuestion(input.value);
+        if (valid) {
+          input.classList.remove('input-error');
+          validationMsg.hidden = true;
+          validationMsg.textContent = '';
+          drawBtn.disabled = false;
+        } else {
+          const t = input.value.trim();
+          if (t.length > 0 && !valid) {
+            input.classList.add('input-error');
+            validationMsg.textContent = 'Please enter a real question (at least 3 words).';
+            validationMsg.hidden = false;
+          } else {
+            input.classList.remove('input-error');
+            validationMsg.hidden = true;
+            validationMsg.textContent = '';
+          }
+          drawBtn.disabled = true;
+        }
+      }
+
+      input.addEventListener('input', updateValidation);
 
       const reflections = {
         'Yes.': 'This suggests momentum is on your side. Still, act with awareness.',
@@ -254,6 +301,12 @@
       };
 
       drawBtn.addEventListener('click', async function() {
+        if (!isValidQuestion(input.value)) {
+          input.classList.add('input-error');
+          validationMsg.textContent = 'Please enter a real question (at least 3 words).';
+          validationMsg.hidden = false;
+          return;
+        }
         drawBtn.disabled = true;
         drawBtn.textContent = 'Drawing…';
 
@@ -288,7 +341,7 @@
           explanationEl.textContent = 'Your clarity may come from stepping back.';
         }
 
-        drawBtn.disabled = false;
+        drawBtn.disabled = !isValidQuestion(input.value);
         drawBtn.textContent = 'Draw Insight';
       });
     })();
