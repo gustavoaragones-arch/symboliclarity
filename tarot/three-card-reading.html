@@ -39,16 +39,15 @@
     .tarot-page .tarot-cards-row { display: flex; justify-content: center; gap: 32px; flex-wrap: nowrap; margin: 40px 0; }
     @media (max-width: 900px) { .tarot-page .tarot-cards-row { flex-wrap: wrap; } }
     .tarot-page .tarot-card-slot { flex: 0 1 245px; border-radius: 12px; overflow: hidden; border: 1px solid var(--tarot-border); background: var(--tarot-card); perspective: 800px; transition: transform 0.3s ease; }
-    .tarot-page .tarot-card-slot.is-revealed { flex: 0 1 290px; }
-    .tarot-page.tarot-route-html .tarot-card-slot.is-revealed { flex: 0 1 315px; }
+    .tarot-page .tarot-card-slot.is-revealed { flex: 0 1 315px; }
     .tarot-page .tarot-card-slot:hover { transform: translateY(-4px); }
-    .tarot-page .tarot-card-flip { position: relative; width: 100%; max-width: 245px; margin: 0 auto; aspect-ratio: 827 / 1417; border-radius: 14px; overflow: hidden; transform-style: preserve-3d; transition: transform 400ms ease, max-width 400ms ease; }
-    .tarot-page .tarot-card-slot.is-revealed .tarot-card-flip { max-width: 290px; }
-    .tarot-page.tarot-route-html .tarot-card-slot.is-revealed .tarot-card-flip { max-width: 315px; }
+    .tarot-page .tarot-card-flip { position: relative; display: block; width: 100%; min-width: 120px; max-width: 245px; margin: 0 auto; aspect-ratio: 827 / 1417; min-height: 200px; border-radius: 14px; overflow: hidden; transform-style: preserve-3d; transition: transform 400ms ease, max-width 400ms ease; background: var(--tarot-card); }
+    .tarot-page .tarot-card-slot.is-revealed .tarot-card-flip { max-width: 315px; }
     .tarot-page .tarot-card-flip.flip { transform: rotateY(180deg); }
-    .tarot-page .tarot-card-front,
-    .tarot-page .tarot-card-back { position: absolute; inset: 0; backface-visibility: hidden; }
-    .tarot-page .tarot-card-back { transform: rotateY(180deg); }
+    .tarot-page .tarot-card-front { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; transition: opacity 200ms ease; }
+    .tarot-page .tarot-card-back { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 2; opacity: 0; transition: opacity 200ms ease; transform: rotateY(180deg); }
+    .tarot-page .tarot-card-flip.flip .tarot-card-front { opacity: 0; pointer-events: none; }
+    .tarot-page .tarot-card-flip.flip .tarot-card-back { opacity: 1; transform: rotateY(180deg); }
     .tarot-page .tarot-card-flip img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; display: block; }
     .tarot-page .tarot-card-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--tarot-muted); margin-top: 12px; text-align: center; }
     .tarot-page .tarot-card-name { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--color-text); margin-top: 4px; text-align: center; }
@@ -101,7 +100,7 @@
     <section class="tarot-cards tarot-cards-row" aria-label="Three-card spread">
       <div class="tarot-card-slot" data-position="past">
         <div class="tarot-card-flip" id="card-past-flip">
-          <div class="tarot-card-front"><img src="/assets/images/tarot/back.jpg" alt=""></div>
+          <div class="tarot-card-front"><img src="/assets/images/tarot/back.jpg" alt="Card back"></div>
           <div class="tarot-card-back"><img id="card-past-img" alt="" loading="lazy"></div>
         </div>
         <p class="tarot-card-label">Past</p>
@@ -110,7 +109,7 @@
       </div>
       <div class="tarot-card-slot" data-position="present">
         <div class="tarot-card-flip" id="card-present-flip">
-          <div class="tarot-card-front"><img src="/assets/images/tarot/back.jpg" alt=""></div>
+          <div class="tarot-card-front"><img src="/assets/images/tarot/back.jpg" alt="Card back"></div>
           <div class="tarot-card-back"><img id="card-present-img" alt="" loading="lazy"></div>
         </div>
         <p class="tarot-card-label">Present</p>
@@ -119,7 +118,7 @@
       </div>
       <div class="tarot-card-slot" data-position="emerging">
         <div class="tarot-card-flip" id="card-emerging-flip">
-          <div class="tarot-card-front"><img src="/assets/images/tarot/back.jpg" alt=""></div>
+          <div class="tarot-card-front"><img src="/assets/images/tarot/back.jpg" alt="Card back"></div>
           <div class="tarot-card-back"><img id="card-emerging-img" alt="" loading="lazy"></div>
         </div>
         <p class="tarot-card-label">Emerging</p>
@@ -182,18 +181,17 @@
       const slotEl = slot.flip.closest('.tarot-card-slot');
       slotEl.classList.remove('is-revealed');
       slot.flip.classList.remove('flip');
-      slot.img.src = '';
-      slot.img.alt = '';
+      slot.img.removeAttribute('src');
+      slot.img.removeAttribute('alt');
+      slot.img.loading = 'eager';
       slot.name.textContent = '';
       slot.meaning.textContent = '';
-      requestAnimationFrame(() => {
-        slot.img.src = CARD_IMG_BASE + card.slug + '.jpg';
-        slot.img.alt = card.name;
-        slot.name.textContent = card.name;
-        slot.meaning.textContent = card.meaning;
-        slotEl.classList.add('is-revealed');
-        slot.flip.classList.add('flip');
-      });
+      slot.img.src = CARD_IMG_BASE + card.slug + '.jpg';
+      slot.img.alt = card.name;
+      slot.name.textContent = card.name;
+      slot.meaning.textContent = card.meaning;
+      slotEl.classList.add('is-revealed');
+      slot.flip.classList.add('flip');
     }
 
     const resultSection = document.getElementById('result-section');
