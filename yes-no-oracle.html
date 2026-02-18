@@ -169,10 +169,10 @@
     <nav class="nav" aria-label="Main navigation">
       <a href="/" class="nav__logo">symboliclarity</a>
       <ul class="nav__links">
-        <li><a href="/angel-number/">Angel Numbers</a></li>
         <li><a href="/tarot/">Tarot</a></li>
-        <li><a href="/tools/">Tools</a></li>
-        <li><a href="/moon-retrograde/">Moon & Retrograde</a></li>
+        <li><a href="/oracle/">Oracle</a></li>
+        <li><a href="/symbolism/">Symbolism</a></li>
+        <li><a href="/how-it-works/">How It Works</a></li>
         <li><a href="/about/">About</a></li>
       </ul>
     </nav>
@@ -237,9 +237,8 @@
 
   <footer class="site-footer">
     <nav class="footer__nav" aria-label="Footer navigation">
-      <a href="/about/">About</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/disclaimer/">Disclaimer</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms</a>
       <a href="/contact/">Contact</a>
     </nav>
     <p class="footer__copyright">© 2026 symboliclarity</p>
@@ -292,13 +291,7 @@
 
       input.addEventListener('input', updateValidation);
 
-      const reflections = {
-        'Yes.': 'This suggests momentum is on your side. Still, act with awareness.',
-        'No.': 'This may be a signal to pause. What feels misaligned?',
-        'Not yet.': 'Timing matters. Something may need to unfold first.',
-        'Pause and reflect first.': 'Your clarity may come from stepping back.',
-        'The answer depends on your next move.': 'Your actions shape the outcome more than circumstance.'
-      };
+      let lastOracleResponse = null;
 
       drawBtn.addEventListener('click', async function() {
         if (!isValidQuestion(input.value)) {
@@ -319,9 +312,18 @@
         resultArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
         try {
-          const res = await fetch('/api/yes-no', { method: 'GET' });
+          const url = lastOracleResponse
+            ? '/api/yes-no?last=' + encodeURIComponent(lastOracleResponse)
+            : '/api/yes-no';
+          const res = await fetch(url, { method: 'GET' });
           const data = await res.json();
-          const answer = data.answer || 'Pause and reflect first.';
+
+          const full = data.answer || 'Pause first.\n\nYour clarity may come from stepping back.\n\nGive it space before deciding.';
+          lastOracleResponse = full;
+
+          const parts = full.split(/\n\n+/);
+          const answer = parts[0] || 'Pause first.';
+          const explanation = parts.slice(1).join(' ') || 'Your clarity may come from stepping back. Give it space before deciding.';
 
           resultArea.classList.remove('oracle-loading');
           loadingEl.hidden = true;
@@ -330,14 +332,14 @@
           engagementLayer.hidden = false;
 
           answerEl.textContent = answer;
-          explanationEl.textContent = reflections[answer] || reflections['Pause and reflect first.'];
+          explanationEl.textContent = explanation;
         } catch (err) {
           resultArea.classList.remove('oracle-loading');
           loadingEl.hidden = true;
           answerEl.hidden = false;
           explanationEl.hidden = false;
           engagementLayer.hidden = false;
-          answerEl.textContent = 'Pause and reflect first.';
+          answerEl.textContent = 'Pause first.';
           explanationEl.textContent = 'Your clarity may come from stepping back.';
         }
 
