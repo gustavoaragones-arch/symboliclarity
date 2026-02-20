@@ -1,2 +1,5 @@
 node_modules/
 .DS_Store
+
+# Local tooling — repo is content-focused (runtime, static pages, schema, production assets only)
+scripts/
