@@ -3,21 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Major Arcana tarot card meanings — reflective, psychological interpretations. Upright and reversed. Symbolic Clarity.">
+  <meta name="description" content="Tarot Meaning Library — Major Arcana. Reflective, psychological interpretations for all 22 cards. Upright and reversed. Symbolic Clarity.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://symboliclarity.com/tarot/meanings/">
-  <meta property="og:title" content="Tarot Card Meanings — Major Arcana | Symbolic Clarity">
+  <meta property="og:title" content="Tarot Meaning Library — Major Arcana | Symbolic Clarity">
   <link rel="canonical" href="https://symboliclarity.com/tarot/meanings/">
-  <title>Tarot Card Meanings — Major Arcana | Symbolic Clarity</title>
+  <title>Tarot Meaning Library — Major Arcana | Symbolic Clarity</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
   <style>
-    .meanings-hub__list { list-style: none; padding: 0; margin: 24px 0 0; }
-    .meanings-hub__list li { margin-bottom: 12px; }
-    .meanings-hub__list a { color: var(--color-accent); font-size: 1.05rem; }
-    .meanings-hub__list a:hover { color: var(--color-text-secondary); }
+    .meanings-hub__intro { max-width: 760px; }
+    .meanings-hub__grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin: 32px 0; }
+    @media (min-width: 600px) { .meanings-hub__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .meanings-hub__grid { grid-template-columns: repeat(3, 1fr); } }
+    .meanings-hub__card { padding: 20px; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-bg-section, #161A2E); }
+    .meanings-hub__card h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .meanings-hub__card h3 a { color: var(--color-text); }
+    .meanings-hub__card h3 a:hover { color: var(--color-accent); }
+    .meanings-hub__card p { margin: 0; font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.5; }
+    .meanings-hub__section { margin-top: 48px; }
   </style>
 </head>
 <body>
@@ -41,38 +47,125 @@
       <span>Meanings</span>
     </nav>
 
-    <h1 class="article__title">Tarot Card Meanings — Major Arcana</h1>
-    <p class="article__intro">Reflective interpretations for each of the 22 Major Arcana cards. These pages offer psychological and symbolic angles — upright and reversed — for self-reflection, not prediction.</p>
+    <h1 class="article__title">Tarot Meaning Library</h1>
 
-    <section aria-labelledby="meanings-list-heading">
-      <h2 id="meanings-list-heading">All Major Arcana Cards</h2>
-      <ul class="meanings-hub__list">
-        <li><a href="/tarot/meanings/the-fool/">The Fool</a></li>
-        <li><a href="/tarot/meanings/the-magician/">The Magician</a></li>
-        <li><a href="/tarot/meanings/the-high-priestess/">The High Priestess</a></li>
-        <li><a href="/tarot/meanings/the-empress/">The Empress</a></li>
-        <li><a href="/tarot/meanings/the-emperor/">The Emperor</a></li>
-        <li><a href="/tarot/meanings/the-hierophant/">The Hierophant</a></li>
-        <li><a href="/tarot/meanings/the-lovers/">The Lovers</a></li>
-        <li><a href="/tarot/meanings/the-chariot/">The Chariot</a></li>
-        <li><a href="/tarot/meanings/strength/">Strength</a></li>
-        <li><a href="/tarot/meanings/the-hermit/">The Hermit</a></li>
-        <li><a href="/tarot/meanings/wheel-of-fortune/">Wheel of Fortune</a></li>
-        <li><a href="/tarot/meanings/justice/">Justice</a></li>
-        <li><a href="/tarot/meanings/the-hanged-man/">The Hanged Man</a></li>
-        <li><a href="/tarot/meanings/death/">Death</a></li>
-        <li><a href="/tarot/meanings/temperance/">Temperance</a></li>
-        <li><a href="/tarot/meanings/the-devil/">The Devil</a></li>
-        <li><a href="/tarot/meanings/the-tower/">The Tower</a></li>
-        <li><a href="/tarot/meanings/the-star/">The Star</a></li>
-        <li><a href="/tarot/meanings/the-moon/">The Moon</a></li>
-        <li><a href="/tarot/meanings/the-sun/">The Sun</a></li>
-        <li><a href="/tarot/meanings/judgement/">Judgement</a></li>
-        <li><a href="/tarot/meanings/the-world/">The World</a></li>
+    <section class="meanings-hub__intro" aria-labelledby="intro-heading">
+      <h2 id="intro-heading">What Tarot Meanings Are For</h2>
+      <p>Tarot meanings are interpretive frameworks — not fixed predictions. Each of the 22 Major Arcana cards carries a set of themes that have evolved over time: archetypes of experience, such as beginnings (The Fool), choice (The Lovers), or transformation (Death). When you look up a card’s meaning, you are not learning what will happen. You are learning a shared language of symbols that can help you reflect on what is already present in your situation. The value lies in the act of pausing, naming, and considering how a theme might relate to your life.</p>
+      <p>On this site, we offer <strong>upright</strong> and <strong>reversed</strong> interpretations. In tarot, a card can be drawn right-side up (upright) or upside down (reversed). Many readers use the upright meaning to reflect the theme in a more outward or “positive” expression, and the reversed meaning to reflect the same theme turned inward, delayed, or expressed in a more challenging way. We avoid framing reversed cards as “bad” or “negative.” Instead, we describe them in terms of blockage, inner work, or the need to integrate what has been overlooked. Neither upright nor reversed is a guarantee of an outcome; both are angles for reflection.</p>
+      <p>Our approach is <strong>reflective, not predictive</strong>. You will not find phrases like “you will meet someone” or “success is guaranteed.” We use language such as “this card may reflect,” “it often symbolizes,” and “it can invite awareness.” The goal is to support your own process of meaning-making — to offer prompts and themes that you can hold up against your experience and see what resonates. If you want to draw cards and see them in context, try our <a href="/tarot/three-card-reading.html">Three-Card Reflection</a>. If you prefer to read about a single card in depth, use the grid below to jump to any Major Arcana meaning.</p>
+    </section>
+
+    <section aria-labelledby="grid-heading">
+      <h2 id="grid-heading">All 22 Major Arcana Cards</h2>
+      <div class="meanings-hub__grid">
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-fool/">The Fool</a></h3>
+          <p>Beginnings, openness to the unknown, and the willingness to step forward without full certainty.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-magician/">The Magician</a></h3>
+          <p>Focused intention, resourcefulness, and the sense that you have what you need to act.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-high-priestess/">The High Priestess</a></h3>
+          <p>Intuition, inner knowing, and the value of waiting and listening before acting.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-empress/">The Empress</a></h3>
+          <p>Abundance, nurturing, and the creative force of what you are cultivating.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-emperor/">The Emperor</a></h3>
+          <p>Structure, authority, boundaries, and where order serves or stifles.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-hierophant/">The Hierophant</a></h3>
+          <p>Tradition, guidance, and the wisdom of established paths and values.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-lovers/">The Lovers</a></h3>
+          <p>Choice, alignment of values, and the weight of what we choose to unite with.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-chariot/">The Chariot</a></h3>
+          <p>Directed will, moving through conflict, and holding the reins with purpose.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/strength/">Strength</a></h3>
+          <p>Inner strength, compassion, and the power of gentle persistence over force.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-hermit/">The Hermit</a></h3>
+          <p>Solitude, introspection, and the search for inner light and clarity.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/wheel-of-fortune/">Wheel of Fortune</a></h3>
+          <p>The cyclical nature of change and openness to what is turning.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/justice/">Justice</a></h3>
+          <p>Fairness, cause and effect, and the need to weigh decisions with integrity.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-hanged-man/">The Hanged Man</a></h3>
+          <p>Pause, surrender, and the shift in perspective that stillness can bring.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/death/">Death</a></h3>
+          <p>Endings, transformation, and what is ready to release so something new can begin.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/temperance/">Temperance</a></h3>
+          <p>Balance, moderation, and the alchemy of blending opposites with patience.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-devil/">The Devil</a></h3>
+          <p>Attachment, patterns that bind, and awareness of what no longer serves.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-tower/">The Tower</a></h3>
+          <p>Sudden change, revelation, and the collapse of what was unstable.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-star/">The Star</a></h3>
+          <p>Hope, inspiration, and openness to renewal and healing.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-moon/">The Moon</a></h3>
+          <p>The unconscious, intuition, and navigating what is not yet clear.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-sun/">The Sun</a></h3>
+          <p>Clarity, vitality, and the warmth of recognition or simple joy.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/judgement/">Judgement</a></h3>
+          <p>Reflection, reckoning, and the call to align with what feels true.</p>
+        </div>
+        <div class="meanings-hub__card">
+          <h3><a href="/tarot/meanings/the-world/">The World</a></h3>
+          <p>Completion, wholeness, and the sense of a cycle fulfilled.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="meanings-hub__section" aria-labelledby="minor-heading">
+      <h2 id="minor-heading">Minor Arcana — Suit Hubs</h2>
+      <p>The 56 Minor Arcana cards are grouped into four suits. Each suit has its own hub with themes, numerology, and court cards. Individual card pages are added over time.</p>
+      <ul>
+        <li><a href="/tarot/meanings/wands/">Suit of Wands</a> — Fire, action, initiative, creative force</li>
+        <li><a href="/tarot/meanings/cups/">Suit of Cups</a> — Water, emotion, intuition, connection</li>
+        <li><a href="/tarot/meanings/swords/">Suit of Swords</a> — Air, thought, conflict, clarity</li>
+        <li><a href="/tarot/meanings/pentacles/">Suit of Pentacles</a> — Earth, stability, material world, craft</li>
       </ul>
     </section>
 
-    <p class="article__intro">Try the <a href="/tarot/three-card-reading.html">Three-Card Reflection</a> or explore <a href="/symbolism/">Understanding Symbolism</a>.</p>
+    <section class="meanings-hub__section" aria-labelledby="how-to-use-heading">
+      <h2 id="how-to-use-heading">How to Use These Meanings in a Reading</h2>
+      <p>When you draw a card — whether in our <a href="/tarot/three-card-reading.html">Three-Card Reflection</a> or with your own deck — the meaning page is a starting point, not a script. Read the upright and reversed sections and notice which angle fits the position (e.g. “past” might suggest something that was, “emerging” something that is still forming). Let the themes sit with you: do any of them connect to what you are already feeling or noticing? Use the reflection questions at the bottom of each page to go deeper. The aim is not to “get the right answer” but to use the card as a mirror for your own situation. Over time, you may find that certain cards recur in your draws; that repetition can be a useful signal to pay attention to that theme in your life.</p>
+      <p>Explore <a href="/symbolism/">Understanding Symbolism</a> for more on how archetypes and symbols work as tools for reflection.</p>
+    </section>
   </main>
 
   <footer class="site-footer">
