@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculate your Life Path number from your birthdate. Free, instant result with a link to your number's meaning. Reflective numerology — not prediction.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://symboliclarity.com/numerology/life-path/">
+  <meta property="og:title" content="Life Path Number Calculator | Symbolic Clarity">
+  <link rel="canonical" href="https://symboliclarity.com/numerology/life-path/">
+  <title>Life Path Number Calculator | Symbolic Clarity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://symboliclarity.com/"},{"@type":"ListItem","position":2,"name":"Numerology","item":"https://symboliclarity.com/numerology/"},{"@type":"ListItem","position":3,"name":"Life Path","item":"https://symboliclarity.com/numerology/life-path/"}]}
+  </script>
+  <style>
+    .lp-calc__intro { max-width: 640px; margin-bottom: 2rem; }
+    .lp-calc__form { margin: 2rem 0; }
+    .lp-calc__form label { display: block; margin-bottom: 0.5rem; color: var(--color-text-secondary); font-size: 0.9rem; }
+    .lp-calc__form input[type="date"] { padding: 10px 14px; border: 1px solid var(--color-border); border-radius: 6px; background: var(--color-bg-section); color: var(--color-text); font-size: 1rem; margin-bottom: 1rem; min-width: 200px; }
+    .lp-calc__form input[type="date"]:focus { outline: 1px solid var(--color-accent); outline-offset: 2px; }
+    .lp-calc__result { margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-bg-section); max-width: 480px; }
+    .lp-calc__result[hidden] { display: none; }
+    .lp-calc__result h2 { margin-top: 0; font-size: 1.25rem; }
+    .lp-calc__result p { margin-bottom: 1rem; }
+    .lp-calc__result a { font-weight: 500; }
+    .lp-calc__explore { margin-top: 2.5rem; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/" class="nav__logo">symboliclarity</a>
+      <ul class="nav__links">
+        <li><a href="/tarot/">Tarot</a></li>
+        <li><a href="/oracle/">Oracle</a></li>
+        <li><a href="/symbolism/">Symbolism</a></li>
+        <li><a href="/numerology/">Numerology</a></li>
+        <li><a href="/how-it-works/">How It Works</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="article">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span class="breadcrumb__sep">/</span>
+      <a href="/numerology/">Numerology</a><span class="breadcrumb__sep">/</span>
+      <span>Life Path</span>
+    </nav>
+
+    <h1 class="article__title">Life Path Number Calculator</h1>
+
+    <section class="lp-calc__intro" aria-labelledby="intro-heading">
+      <h2 id="intro-heading">Find Your Life Path Number</h2>
+      <p>Your Life Path number is derived from your full birthdate. Enter your date of birth below and we will reduce it to a single digit — or to the master numbers 11 or 22 — using the standard method. The result is a symbolic pattern for reflection, not a prediction of your future. Use it as a lens to explore themes that many people find useful when thinking about personality, choice, and growth.</p>
+    </section>
+
+    <section class="lp-calc__form" aria-labelledby="form-heading">
+      <h2 id="form-heading" class="visually-hidden">Birthdate input</h2>
+      <form id="life-path-form" novalidate>
+        <label for="birthdate">Date of birth</label>
+        <input type="date" id="birthdate" name="birthdate" required aria-required="true">
+        <button type="submit" class="btn btn--primary">Calculate</button>
+      </form>
+    </section>
+
+    <div id="result-area" class="lp-calc__result" hidden aria-live="polite">
+      <h2 id="result-heading">Your Life Path Number</h2>
+      <p id="result-number" aria-live="polite"></p>
+      <p id="result-summary"></p>
+      <p id="result-link-wrap"></p>
+    </div>
+
+    <div id="result-error" class="lp-calc__result" hidden aria-live="polite" style="border-color: rgba(200,120,80,0.4);">
+      <p id="result-error-msg">Please enter a valid date of birth.</p>
+    </div>
+
+    <section class="lp-calc__explore">
+      <h2>Explore all Life Path meanings</h2>
+      <p>Browse the full set of Life Path number pages — 1 through 9, plus the master numbers 11 and 22 — on our <a href="/numerology/">Numerology hub</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer__nav" aria-label="Footer navigation">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <p class="footer__copyright">© 2026 symboliclarity</p>
+  </footer>
+
+  <script>
+(function() {
+  function reduceToSingleDigit(n) {
+    if (n === 11 || n === 22) return n;
+    while (n > 9) {
+      n = String(n).split('').reduce(function(acc, d) { return acc + parseInt(d, 10); }, 0);
+    }
+    return n;
+  }
+
+  function reduceComponent(n) {
+    while (n > 9) {
+      n = String(n).split('').reduce(function(acc, d) { return acc + parseInt(d, 10); }, 0);
+    }
+    return n;
+  }
+
+  function calculateLifePath(year, month, day) {
+    var m = reduceComponent(month);
+    var d = reduceComponent(day);
+    var y = reduceComponent(year);
+    var sum = m + d + y;
+    return reduceToSingleDigit(sum);
+  }
+
+  var summaries = {
+    1: 'Life Path 1 is often associated with themes of independence, initiative, and leadership. It can be a useful lens for reflecting on how you take the lead and assert your direction.',
+    2: 'Life Path 2 is often associated with themes of partnership, cooperation, and sensitivity to others. It can be a useful lens for reflecting on how you balance and collaborate.',
+    3: 'Life Path 3 is often associated with themes of expression, creativity, and communication. It can be a useful lens for reflecting on how you share your gifts with the world.',
+    4: 'Life Path 4 is often associated with themes of stability, structure, and building. It can be a useful lens for reflecting on how you create order and dependability.',
+    5: 'Life Path 5 is often associated with themes of change, freedom, and experience. It can be a useful lens for reflecting on how you adapt and seek variety.',
+    6: 'Life Path 6 is often associated with themes of responsibility, care, and service. It can be a useful lens for reflecting on how you nurture and support others.',
+    7: 'Life Path 7 is often associated with themes of reflection, depth, and seeking meaning. It can be a useful lens for reflecting on how you learn and go inward.',
+    8: 'Life Path 8 is often associated with themes of authority, material focus, and achievement. It can be a useful lens for reflecting on how you use power and resources.',
+    9: 'Life Path 9 is often associated with themes of completion, compassion, and the bigger picture. It can be a useful lens for reflecting on how you let go and serve a wider whole.',
+    11: 'Life Path 11 is a master number often associated with themes of intuition, inspiration, and vision. It can be a useful lens for reflecting on how you bridge the practical and the visionary.',
+    22: 'Life Path 22 is a master number often associated with themes of building at a large scale and turning vision into form. It can be a useful lens for reflecting on how you manifest big ideas.'
+  };
+
+  var form = document.getElementById('life-path-form');
+  var resultArea = document.getElementById('result-area');
+  var resultError = document.getElementById('result-error');
+  var resultNumber = document.getElementById('result-number');
+  var resultSummary = document.getElementById('result-summary');
+  var resultLinkWrap = document.getElementById('result-link-wrap');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var input = document.getElementById('birthdate');
+    var raw = input.value && input.value.trim();
+
+    resultArea.setAttribute('hidden', '');
+    resultError.setAttribute('hidden', '');
+
+    if (!raw) {
+      document.getElementById('result-error-msg').textContent = 'Please enter your date of birth.';
+      resultError.removeAttribute('hidden');
+      input.focus();
+      return;
+    }
+
+    var parts = raw.split('-');
+    if (parts.length !== 3) {
+      document.getElementById('result-error-msg').textContent = 'Please enter a valid date (e.g. year-month-day).';
+      resultError.removeAttribute('hidden');
+      input.focus();
+      return;
+    }
+
+    var year = parseInt(parts[0], 10);
+    var month = parseInt(parts[1], 10);
+    var day = parseInt(parts[2], 10);
+
+    if (isNaN(year) || isNaN(month) || isNaN(day) || month < 1 || month > 12 || day < 1 || day > 31 || year < 1 || year > 9999) {
+      document.getElementById('result-error-msg').textContent = 'Please enter a valid date of birth.';
+      resultError.removeAttribute('hidden');
+      input.focus();
+      return;
+    }
+
+    var lifePath = calculateLifePath(year, month, day);
+    var summary = summaries[lifePath] || 'Your Life Path number can be a useful pattern for reflection.';
+
+    resultNumber.textContent = 'Your Life Path Number is: ' + lifePath;
+    resultSummary.textContent = summary;
+    resultLinkWrap.innerHTML = 'Read the full meaning: <a href="/numerology/life-path/' + lifePath + '/">Life Path ' + lifePath + '</a>';
+    resultArea.removeAttribute('hidden');
+    resultArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+})();
+  </script>
+  <script src="../../app.js"></script>
+</body>
+</html>
