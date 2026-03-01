@@ -390,6 +390,13 @@ button:active,
   color: var(--color-text);
 }
 
+.publisher-identity {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 0.5rem;
+  max-width: 42em;
+}
+
 .footer__copyright {
   font-size: 0.85rem;
   color: var(--color-text-secondary);
