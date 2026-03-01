@@ -571,3 +571,81 @@ main {
 .faq__answer p:last-child {
   margin-bottom: 0;
 }
+
+/* ---------- Phase 9: Related Explore & Journal Prompt ---------- */
+.related-section {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.related-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.related-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.related-section li {
+  margin-bottom: 0.4rem;
+}
+
+.related-section a {
+  color: var(--color-accent);
+  transition: color var(--transition-subtle);
+}
+
+.related-section a:hover {
+  color: var(--color-text-secondary);
+}
+
+.journal-prompt-block {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border-radius: 6px;
+  background: var(--color-bg-section);
+  border: 1px solid var(--color-border);
+}
+
+.journal-prompt-block__title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-secondary);
+}
+
+.journal-prompt-block__text {
+  font-size: 0.95rem;
+  margin: 0;
+  color: var(--color-text);
+  font-style: italic;
+}
+
+/* ---------- Micro-animations ---------- */
+.compat-calc__result.is-visible {
+  animation: relatedFadeIn 0.35s ease forwards;
+}
+
+@keyframes relatedFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.compat-calc__grid select:hover,
+.compat-calc__grid select:focus {
+  transition: border-color var(--transition-subtle), box-shadow 0.2s ease;
+}
+
+.compat-calc__grid select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(198, 169, 93, 0.25);
+}

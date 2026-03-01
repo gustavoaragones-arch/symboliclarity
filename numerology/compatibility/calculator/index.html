@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Path Compatibility Calculator | Symbolic Clarity</title>
+  <meta name="description" content="Explore how two Life Path numbers interact. This compatibility calculator reflects symbolic patterns of interaction — not guaranteed outcomes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://symboliclarity.com/numerology/compatibility/calculator/">
+  <meta property="og:title" content="Life Path Compatibility Calculator | Symbolic Clarity">
+  <link rel="canonical" href="https://symboliclarity.com/numerology/compatibility/calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://symboliclarity.com/"},{"@type":"ListItem","position":2,"name":"Numerology","item":"https://symboliclarity.com/numerology/"},{"@type":"ListItem","position":3,"name":"Compatibility","item":"https://symboliclarity.com/numerology/compatibility/"},{"@type":"ListItem","position":4,"name":"Compatibility Calculator","item":"https://symboliclarity.com/numerology/compatibility/calculator/"}]}
+  </script>
+  <style>
+    .compat-calc__container { max-width: 700px; margin: 0 auto; }
+    .compat-calc__box { padding: 2rem; border-radius: 8px; background: var(--color-bg-secondary, #f8f8f8); margin-top: 2rem; }
+    .compat-calc__grid { display: grid; gap: 1rem; margin-bottom: 1.5rem; }
+    .compat-calc__grid label { font-weight: 500; }
+    .compat-calc__grid select { padding: 0.5rem; font-size: 1rem; }
+    .compat-calc__result { margin-top: 1.5rem; }
+    .compat-calc__result a { color: var(--color-accent); }
+    .compat-calc__result a:hover { color: var(--color-text-secondary); }
+    .compat-calc__result p { margin-bottom: 0.75rem; }
+    .compat-calc__btn { padding: 0.6rem 1.25rem; font-size: 1rem; cursor: pointer; background: var(--color-accent, #333); color: #fff; border: none; border-radius: 4px; }
+    .compat-calc__btn:hover { opacity: 0.9; }
+    .hidden { display: none; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/" class="nav__logo">symboliclarity</a>
+      <ul class="nav__links">
+        <li><a href="/tarot/">Tarot</a></li>
+        <li><a href="/oracle/">Oracle</a></li>
+        <li><a href="/symbolism/">Symbolism</a></li>
+        <li><a href="/numerology/">Numerology</a></li>
+        <li><a href="/how-it-works/">How It Works</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="article">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span class="breadcrumb__sep">/</span>
+      <a href="/numerology/">Numerology</a><span class="breadcrumb__sep">/</span>
+      <a href="/numerology/compatibility/">Compatibility</a><span class="breadcrumb__sep">/</span>
+      <span>Compatibility Calculator</span>
+    </nav>
+
+    <div class="compat-calc__container">
+      <h1 class="article__title">Life Path Compatibility Calculator</h1>
+
+      <p>Select two Life Path numbers to explore how their symbolic patterns may interact. This tool reflects tendencies in communication, structure, and emotional orientation — it does not predict relationship outcomes.</p>
+
+      <div class="compat-calc__box">
+        <form id="compatForm">
+          <fieldset>
+            <legend class="visually-hidden">Select two Life Path numbers</legend>
+
+            <div class="compat-calc__grid">
+              <label for="lifePathA">First Life Path Number</label>
+              <select id="lifePathA" required aria-required="true">
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="11">11</option>
+                <option value="22">22</option>
+              </select>
+
+              <label for="lifePathB">Second Life Path Number</label>
+              <select id="lifePathB" required aria-required="true">
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="11">11</option>
+                <option value="22">22</option>
+              </select>
+            </div>
+
+            <button type="submit" class="compat-calc__btn">Explore Compatibility</button>
+          </fieldset>
+        </form>
+
+        <div id="resultBlock" class="compat-calc__result hidden" aria-live="polite"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer__nav" aria-label="Footer navigation">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <p class="footer__copyright">© 2026 symboliclarity</p>
+  </footer>
+
+  <script src="../../../app.js"></script>
+  <script>
+    (function() {
+      var form = document.getElementById("compatForm");
+      var resultBlock = document.getElementById("resultBlock");
+
+      var existingPages = [
+        "1-2",
+        "4-5",
+        "6-9",
+        "7-8",
+        "11-2",
+        "22-4"
+      ];
+
+      function normalizePair(a, b) {
+        var master = ["11", "22"];
+        var first = a;
+        var second = b;
+        if (master.indexOf(a) >= 0 && master.indexOf(b) >= 0) {
+          first = a === "22" ? "22" : "11";
+          second = a === "22" ? "11" : "22";
+        } else if (master.indexOf(a) >= 0) {
+          first = a;
+          second = b;
+        } else if (master.indexOf(b) >= 0) {
+          first = b;
+          second = a;
+        } else {
+          var na = parseInt(a, 10);
+          var nb = parseInt(b, 10);
+          if (na <= nb) { first = a; second = b; }
+          else { first = b; second = a; }
+        }
+        return first + "-" + second;
+      }
+
+      function slugFromPair(pairKey) {
+        return "life-path-" + pairKey.replace("-", "-and-") + "/";
+      }
+
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        resultBlock.classList.add("hidden");
+        resultBlock.classList.remove("is-visible");
+
+        var a = document.getElementById("lifePathA").value;
+        var b = document.getElementById("lifePathB").value;
+
+        if (!a || !b) {
+          resultBlock.classList.remove("hidden");
+          resultBlock.classList.add("is-visible");
+          resultBlock.innerHTML = "<p>Please select both Life Path numbers.</p>";
+          return;
+        }
+
+        if (a === b) {
+          resultBlock.classList.remove("hidden");
+          resultBlock.classList.add("is-visible");
+          resultBlock.innerHTML = "<p>Exploring the same Life Path number together reflects shared orientation. Review the full meaning of <a href=\"/numerology/life-path/" + a + "/\">Life Path " + a + "</a> to reflect on shared strengths and growth edges.</p>";
+          return;
+        }
+
+        var pairKey = normalizePair(a, b);
+
+        if (existingPages.indexOf(pairKey) >= 0) {
+          window.location.href = "/numerology/compatibility/" + slugFromPair(pairKey);
+        } else {
+          resultBlock.classList.remove("hidden");
+          resultBlock.classList.add("is-visible");
+          resultBlock.innerHTML = "<p>A dedicated compatibility page for Life Path " + a + " and " + b + " is not yet available.</p><p>You may explore each individual pattern: <a href=\"/numerology/life-path/" + a + "/\">Life Path " + a + "</a> and <a href=\"/numerology/life-path/" + b + "/\">Life Path " + b + "</a>.</p><p>Compatibility reflects interaction patterns — not fixed outcomes.</p>";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
