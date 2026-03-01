@@ -133,6 +133,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
     block.appendChild(container);
 
+    requestAnimationFrame(function () {
+      container.classList.add("is-visible");
+    });
+
+  });
+
+  /* Phase 9.2 — Reflection Save (local only) */
+  const reflectionBlocks = document.querySelectorAll(".reflection-save");
+
+  reflectionBlocks.forEach(function (block) {
+
+    const toggleBtn = block.querySelector(".reflection-toggle");
+    const area = block.querySelector(".reflection-area");
+    const textarea = block.querySelector("textarea");
+    const storageKey = "sc_reflection_" + block.dataset.reflectionId;
+
+    if (!toggleBtn || !area || !textarea) return;
+
+    const savedText = localStorage.getItem(storageKey);
+    if (savedText) {
+      area.classList.remove("hidden");
+      textarea.value = savedText;
+      toggleBtn.textContent = "Hide Reflection";
+      toggleBtn.setAttribute("aria-expanded", "true");
+    } else {
+      toggleBtn.setAttribute("aria-expanded", "false");
+    }
+
+    toggleBtn.addEventListener("click", function () {
+      area.classList.toggle("hidden");
+
+      if (!area.classList.contains("hidden")) {
+        toggleBtn.textContent = "Hide Reflection";
+      } else {
+        toggleBtn.textContent = "Save Reflection";
+      }
+      toggleBtn.setAttribute("aria-expanded", String(!area.classList.contains("hidden")));
+    });
+
+    textarea.addEventListener("input", function () {
+      localStorage.setItem(storageKey, textarea.value);
+    });
+
   });
 
 });
