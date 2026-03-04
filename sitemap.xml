@@ -16,12 +16,14 @@
   <url><loc>https://symboliclarity.com/symbolism/</loc></url>
   <url><loc>https://symboliclarity.com/terms/</loc></url>
   <url><loc>https://symboliclarity.com/trust/</loc></url>
+  <url><loc>https://symboliclarity.com/daily-reflection/</loc></url>
 
   <!-- Numerology -->
   <url><loc>https://symboliclarity.com/numerology/</loc></url>
   <url><loc>https://symboliclarity.com/numerology/life-path/</loc></url>
   <url><loc>https://symboliclarity.com/numerology/compatibility/</loc></url>
   <url><loc>https://symboliclarity.com/numerology/compatibility/calculator/</loc></url>
+  <url><loc>https://symboliclarity.com/numerology/angel-numbers/</loc></url>
 
   <!-- Life Path -->
   <url><loc>https://symboliclarity.com/numerology/life-path/1/</loc></url>
@@ -47,6 +49,7 @@
   <!-- Tarot hub & meanings index -->
   <url><loc>https://symboliclarity.com/tarot/</loc></url>
   <url><loc>https://symboliclarity.com/tarot/meanings/</loc></url>
+  <url><loc>https://symboliclarity.com/tarot/combinations/</loc></url>
 
   <!-- Suit hubs -->
   <url><loc>https://symboliclarity.com/tarot/meanings/wands/</loc></url>

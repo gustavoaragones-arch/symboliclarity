@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A daily symbolic reflection combining tarot focus, numerology tone, and a reflection prompt. Same reflection for everyone each day — shareable and bookmarkable.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://symboliclarity.com/daily-reflection/">
+  <meta property="og:title" content="Daily Reflection | SymbolicClarity">
+  <link rel="canonical" href="https://symboliclarity.com/daily-reflection/">
+  <title>Daily Reflection | SymbolicClarity</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://symboliclarity.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Daily Reflection", "item": "https://symboliclarity.com/daily-reflection/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/" class="nav__logo">symboliclarity</a>
+      <ul class="nav__links">
+        <li><a href="/tarot/">Tarot</a></li>
+        <li><a href="/oracle/">Oracle</a></li>
+        <li><a href="/symbolism/">Symbolism</a></li>
+        <li><a href="/numerology/">Numerology</a></li>
+        <li><a href="/how-it-works/">How It Works</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="article">
+    <nav aria-label="Breadcrumb">
+      <p>
+        <a href="/">Home</a><span class="breadcrumb__sep">/</span>
+        <span>Daily Reflection</span>
+      </p>
+    </nav>
+
+    <h1 class="article__title">Daily Reflection</h1>
+    <p class="article__intro">Each day has one shared reflection: a tarot focus, a numerology tone, and a reflection prompt. The same combination is shown for everyone that day — no randomness, so you can bookmark or share the page. Use it as a starting point for journaling or quiet reflection.</p>
+
+    <div id="dailyReflectionContent" class="daily-reflect" aria-live="polite">
+      <p><em>Loading today's reflection…</em></p>
+    </div>
+
+    <div class="reflection-save" data-reflection-id="daily-reflection">
+      <button type="button" class="reflection-toggle" aria-expanded="false">Save Reflection</button>
+      <div class="reflection-area hidden">
+        <textarea placeholder="Write your thoughts here..." rows="6" aria-label="Reflection text area"></textarea>
+        <p class="reflection-note">Saved locally in your browser. Nothing is transmitted.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer__nav" aria-label="Footer navigation">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/trust/">Trust</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <p class="publisher-identity">SymbolicClarity is independently developed and operated by <strong>Albor Digital LLC</strong>, a Wyoming-based product studio.</p>
+    <p class="footer__copyright">© 2026 symboliclarity</p>
+  </footer>
+
+  <script src="../app.js"></script>
+</body>
+</html>
