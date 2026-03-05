@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yes or No Tarot | Reflective Tarot Tool | SymbolicClarity</title>
+  <meta name="description" content="Ask a question and draw a tarot card for reflection. The Yes or No Tarot tool offers symbolic guidance based on tarot archetypes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://symboliclarity.com/tarot/yes-no/">
+  <meta property="og:title" content="Yes or No Tarot | Reflective Tarot Tool">
+  <link rel="canonical" href="https://symboliclarity.com/tarot/yes-no/">
+  <link rel="stylesheet" href="../../styles.css">
+  <script defer src="../../app.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://symboliclarity.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Tarot", "item": "https://symboliclarity.com/tarot/" },
+      { "@type": "ListItem", "position": 3, "name": "Yes or No Tarot", "item": "https://symboliclarity.com/tarot/yes-no/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/" class="nav__logo">symboliclarity</a>
+      <ul class="nav__links">
+        <li><a href="/tarot/">Tarot</a></li>
+        <li><a href="/oracle/">Oracle</a></li>
+        <li><a href="/symbolism/">Symbolism</a></li>
+        <li><a href="/numerology/">Numerology</a></li>
+        <li><a href="/how-it-works/">How It Works</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="article">
+    <nav aria-label="Breadcrumb">
+      <p>
+        <a href="/">Home</a><span class="breadcrumb__sep">/</span>
+        <a href="/tarot/">Tarot</a><span class="breadcrumb__sep">/</span>
+        <span>Yes or No Tarot</span>
+      </p>
+    </nav>
+
+    <article class="yesno-tarot">
+      <h1 class="article__title">Yes or No Tarot</h1>
+
+      <p class="article__intro">Some tarot readings explore questions that seem to call for a simple yes or no answer. In reflective tarot practice, however, cards are better understood as symbolic themes rather than fixed predictions.</p>
+
+      <p>This tool draws one tarot card to help you reflect on the situation behind your question. Instead of determining an outcome, the card highlights patterns, intentions, or perspectives that may be relevant.</p>
+
+      <section class="yesno-tool" aria-labelledby="yesno-heading">
+        <h2 id="yesno-heading">Draw a card</h2>
+        <label for="yesno-question">Your question</label>
+        <input id="yesno-question" type="text" placeholder="Ask a reflective question..." aria-label="Your reflective question">
+        <button id="yesnoButton" type="button" class="btn btn--primary">Draw a card</button>
+        <div id="yesnoResult" class="yesno-result" aria-live="polite"></div>
+      </section>
+
+      <section aria-labelledby="how-heading">
+        <h2 id="how-heading">How Yes or No Tarot Works</h2>
+        <p>A yes or no tarot draw simplifies a larger symbolic system into a single card reflection. Some readers loosely interpret certain cards as leaning toward "yes" or "no," but tarot symbolism is more nuanced than a binary answer.</p>
+        <p>When a card appears, it may highlight factors such as intention, timing, preparation, or awareness. These themes can help you reflect on the situation rather than determine the outcome directly.</p>
+      </section>
+
+      <section aria-labelledby="explore-heading">
+        <h2 id="explore-heading">Explore Tarot More Deeply</h2>
+        <p>If you want to examine the symbolic meaning of the card you draw, visit the <a href="/tarot/meanings/">Tarot Meaning Library</a>. For a quick reference to how each Major Arcana card is often read in yes-or-no questions, see <a href="/tarot/yes-no-meanings/">Tarot Yes or No Meanings</a>.</p>
+        <p>You can also explore how cards interact using the <a href="/tarot/combinations/">Tarot Combination Explorer</a> or try a <a href="/tarot/three-card-reading.html">three-card reflection spread</a>.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer__nav" aria-label="Footer navigation">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/trust/">Trust</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <p class="publisher-identity">SymbolicClarity is independently developed and operated by <strong>Albor Digital LLC</strong>, a Wyoming-based product studio.</p>
+    <p class="footer__copyright">© 2026 symboliclarity</p>
+  </footer>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var cards = [
+      "The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor",
+      "The Hierophant", "The Lovers", "The Chariot", "Strength", "The Hermit",
+      "Wheel of Fortune", "Justice", "The Hanged Man", "Death", "Temperance",
+      "The Devil", "The Tower", "The Star", "The Moon", "The Sun",
+      "Judgement", "The World"
+    ];
+    var result = document.getElementById("yesnoResult");
+    var btn = document.getElementById("yesnoButton");
+    if (!result || !btn) return;
+    btn.addEventListener("click", function () {
+      var randomCard = cards[Math.floor(Math.random() * cards.length)];
+      var slug = randomCard.toLowerCase().replace(/\s+/g, "-");
+      result.innerHTML =
+        "<h2>Your Card: " + randomCard + "</h2>" +
+        "<p>Rather than providing a fixed yes or no answer, " + randomCard + " invites reflection on the themes this card represents and how they relate to your situation.</p>" +
+        "<p>Explore the full meaning of this card:</p>" +
+        "<p><a href=\"/tarot/meanings/" + slug + "/\">" + randomCard + " Meaning</a></p>";
+    });
+  });
+  </script>
+</body>
+</html>

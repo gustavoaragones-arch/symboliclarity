@@ -256,6 +256,46 @@ button:active,
   transform: scale(0.99);
 }
 
+/* ========== HOME — QUICK TAROT TOOLS ========== */
+.home-tools {
+  margin-top: 3rem;
+}
+
+.home-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.home-tool-card {
+  display: block;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  text-decoration: none;
+  background: var(--color-bg);
+  color: inherit;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.home-tool-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.home-tool-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+.home-tool-card:hover {
+  background: var(--color-bg-section);
+  border-color: var(--color-accent);
+}
+
 /* ========== SECTION 2 — CATEGORIES GRID ========== */
 .categories {
   margin-bottom: var(--section-gap);
@@ -805,6 +845,22 @@ button:active,
 }
 
 .combo-result a:hover {
+  color: var(--color-text-secondary);
+}
+
+/* Tarot Yes or No Meanings list */
+.yesno-meanings-list {
+  list-style: none;
+  padding-left: 0;
+}
+.yesno-meanings-list li {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.yesno-meanings-list a {
+  color: var(--color-accent);
+}
+.yesno-meanings-list a:hover {
   color: var(--color-text-secondary);
 }
 
