@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
 
+# AI / search crawlers (explicit allow for indexing & grounding)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://symboliclarity.com/sitemap.xml

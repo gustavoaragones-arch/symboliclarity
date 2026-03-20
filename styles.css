@@ -922,3 +922,72 @@ textarea:focus {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* ---------- AEO: Answer extraction & trust ---------- */
+.direct-answer {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-section);
+}
+
+.direct-answer h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.semantic-bridge {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 1rem;
+}
+
+.answer-bridge {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin: 0.75rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.answer-bridge a {
+  color: var(--color-accent);
+}
+
+/* AEO-2.5: programmatic answer variations (before FAQ) */
+.ai-answers {
+  margin-top: 2rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-section);
+}
+
+.ai-answers h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.ai-answers p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.ai-answers p:last-child {
+  margin-bottom: 0;
+}
+
+.ai-answers strong {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.ai-disclosure {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  max-width: 42rem;
+  margin: 0.75rem auto 0;
+  line-height: 1.5;
+}
