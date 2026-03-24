@@ -207,6 +207,21 @@ main {
   gap: 16px;
 }
 
+.hero__crawl-link {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+.hero__crawl-link a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.hero__crawl-link a:hover {
+  color: var(--color-text);
+}
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-block;
@@ -430,17 +445,28 @@ button:active,
   color: var(--color-text);
 }
 
-.publisher-identity {
-  font-size: 0.8rem;
-  color: var(--color-text-secondary);
-  margin: 0 0 0.5rem;
-  max-width: 42em;
+.footer__bottom {
+  margin-top: 1.5rem;
+  text-align: center;
 }
 
-.footer__copyright {
-  font-size: 0.85rem;
+.footer__bottom .publisher-identity,
+.footer__bottom .ai-disclosure,
+.footer__bottom .footer__copyright {
+  font-size: 0.8rem;
   color: var(--color-text-secondary);
-  margin: 0;
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
+
+.footer__bottom .publisher-identity {
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer__bottom .footer__copyright {
+  margin-bottom: 0;
 }
 
 /* ---------- Optional: Subtle fade-in (reduced motion safe) ---------- */
@@ -984,10 +1010,3 @@ textarea:focus {
   font-weight: 500;
 }
 
-.ai-disclosure {
-  font-size: 0.82rem;
-  color: var(--color-text-secondary);
-  max-width: 42rem;
-  margin: 0.75rem auto 0;
-  line-height: 1.5;
-}
