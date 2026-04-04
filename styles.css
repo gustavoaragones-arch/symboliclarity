@@ -369,6 +369,22 @@ button:active,
   color: var(--color-accent-secondary);
 }
 
+/* Internal discovery / crawl reinforcement */
+.crawl-loop {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.page-redirect-intent {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+
 /* ========== SECTION 3 — POSITIONING BLOCK ========== */
 .positioning {
   margin-bottom: var(--section-gap);
