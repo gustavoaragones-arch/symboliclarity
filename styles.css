@@ -408,6 +408,27 @@ button:active,
   color: var(--color-text-secondary);
 }
 
+.snippet-block {
+  margin-top: 2rem;
+}
+
+.snippet-block h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.snippet-block p {
+  color: var(--color-text-secondary);
+}
+
+.snippet-list {
+  margin-top: 1.5rem;
+}
+
+.snippet-list ul {
+  padding-left: 1.2rem;
+}
+
 /* ========== SECTION 3 — POSITIONING BLOCK ========== */
 .positioning {
   margin-bottom: var(--section-gap);
