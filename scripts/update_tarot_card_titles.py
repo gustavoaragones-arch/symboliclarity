@@ -48,7 +48,7 @@ def meta_description(card_name: str) -> str:
 
 
 def page_title(card_name: str) -> str:
-    return f"{card_name} Tarot Meaning (Love, Feelings, Yes or No)"
+    return f"{card_name} Tarot Meaning — Love, Feelings, Yes or No"
 
 
 def process_file(path: str, dry: bool) -> bool:

@@ -385,6 +385,29 @@ button:active,
   line-height: 1.55;
 }
 
+.serp-block {
+  margin-top: 2rem;
+}
+
+.serp-block h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.serp-block p {
+  color: var(--color-text-secondary);
+}
+
+.intent-reinforce {
+  margin-top: 1.5rem;
+}
+
+.tarot-browse-cta {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
 /* ========== SECTION 3 — POSITIONING BLOCK ========== */
 .positioning {
   margin-bottom: var(--section-gap);

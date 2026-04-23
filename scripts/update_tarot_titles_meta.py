@@ -32,7 +32,7 @@ def title_from_slug(slug):
 
 
 def build_title(card_name):
-    return f"{card_name} Tarot Meaning (Love, Feelings, Yes or No)"
+    return f"{card_name} Tarot Meaning — Love, Feelings, Yes or No"
 
 
 def build_description(card_name):
